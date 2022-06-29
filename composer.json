@@ -1,0 +1,40 @@
+{
+    "name": "smskin/myhouse-identity-service-client",
+    "description": "Guards for auth by identity service",
+    "keywords": [
+        "auth",
+        "guard",
+        "laravel",
+        "identity-service"
+    ],
+    "authors": [
+        {
+            "name": "SMSkin",
+            "email": "serg@msoinvest.com",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/smskin/myhouse-identity-service-client",
+    "license": "MIT",
+    "require": {
+        "php": "^8.1",
+        "ext-sync": "*",
+        "laravel/framework": "^8 || ^9",
+        "guzzlehttp/guzzle": "^7.0",
+        "smskin/laravel-support": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MyHouse\\IdentityServiceClient\\ServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "MyHouse\\IdentityServiceClient\\": "src"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

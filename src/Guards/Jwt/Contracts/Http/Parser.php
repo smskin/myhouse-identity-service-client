@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt\Contracts\Http;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt\Contracts\Http;
 
 use Illuminate\Http\Request;
 

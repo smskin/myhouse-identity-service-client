@@ -26,13 +26,13 @@
     "extra": {
         "laravel": {
             "providers": [
-                "MyHouse\\IdentityServiceClient\\ServiceProvider"
+                "SMSkin\\IdentityServiceClient\\ServiceProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-            "MyHouse\\IdentityServiceClient\\": "src"
+            "SMSkin\\IdentityServiceClient\\": "src"
         }
     },
     "minimum-stability": "dev",

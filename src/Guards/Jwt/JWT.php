@@ -1,12 +1,12 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
-use MyHouse\IdentityServiceClient\Api\Requests\Identity\Logout;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Exceptions\JWTException;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parser;
+use SMSkin\IdentityServiceClient\Api\Requests\Identity\Logout;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions\JWTException;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parser;
 
 class JWT
 {

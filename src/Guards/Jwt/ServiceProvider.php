@@ -1,14 +1,14 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parser;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\AuthHeaders;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\Cookies;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\InputSource;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\QueryString;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\RouteParams;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parser;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\AuthHeaders;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\Cookies;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\InputSource;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\QueryString;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers\RouteParams;
 
 class ServiceProvider extends BaseServiceProvider
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Session;
+namespace SMSkin\IdentityServiceClient\Guards\Session;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use MyHouse\IdentityServiceClient\Guards\Session\Support\TokenStorage;
+use SMSkin\IdentityServiceClient\Guards\Session\Support\TokenStorage;
 
 class ServiceProvider extends BaseServiceProvider
 {

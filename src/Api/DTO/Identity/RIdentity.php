@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\DTO\Identity;
+namespace SMSkin\IdentityServiceClient\Api\DTO\Identity;
 
 use Carbon\Carbon;
 use SMSkin\LaravelSupport\Contracts\Arrayable;

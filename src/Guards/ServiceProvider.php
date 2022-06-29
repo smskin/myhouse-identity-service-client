@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards;
+namespace SMSkin\IdentityServiceClient\Guards;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 

@@ -1,14 +1,14 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Session\Support;
+namespace SMSkin\IdentityServiceClient\Guards\Session\Support;
 
 use Illuminate\Contracts\Cookie\QueueingFactory as CookieJar;
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Crypt;
-use MyHouse\IdentityServiceClient\Api\DTO\Auth\RJwt;
-use MyHouse\IdentityServiceClient\Api\DTO\Auth\RToken;
+use SMSkin\IdentityServiceClient\Api\DTO\Auth\RJwt;
+use SMSkin\IdentityServiceClient\Api\DTO\Auth\RToken;
 use Symfony\Component\HttpFoundation\Request;
 
 class TokenStorage

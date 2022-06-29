@@ -1,10 +1,10 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Requests\Auth\Jwt;
+namespace SMSkin\IdentityServiceClient\Api\Requests\Auth\Jwt;
 
 use GuzzleHttp\Exception\GuzzleException;
-use MyHouse\IdentityServiceClient\Api\DTO\Auth\RJwt;
-use MyHouse\IdentityServiceClient\Api\Requests\BaseRequest;
+use SMSkin\IdentityServiceClient\Api\DTO\Auth\RJwt;
+use SMSkin\IdentityServiceClient\Api\Requests\BaseRequest;
 
 class Refresh extends BaseRequest
 {

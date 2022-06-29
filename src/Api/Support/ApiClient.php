@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Support;
+namespace SMSkin\IdentityServiceClient\Api\Support;
 
 use Exception;
 use GuzzleHttp\Client;

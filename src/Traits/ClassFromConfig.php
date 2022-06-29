@@ -1,8 +1,8 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Traits;
+namespace SMSkin\IdentityServiceClient\Traits;
 
-use MyHouse\IdentityServiceClient\Models\Contracts\HasIdentity;
+use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
 
 trait ClassFromConfig
 {

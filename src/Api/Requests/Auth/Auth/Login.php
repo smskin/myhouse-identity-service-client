@@ -1,10 +1,10 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Requests\Auth\Auth;
+namespace SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth;
 
 use GuzzleHttp\Exception\GuzzleException;
-use MyHouse\IdentityServiceClient\Api\DTO\Auth\RJwt;
-use MyHouse\IdentityServiceClient\Api\Requests\BaseRequest;
+use SMSkin\IdentityServiceClient\Api\DTO\Auth\RJwt;
+use SMSkin\IdentityServiceClient\Api\Requests\BaseRequest;
 
 class Login extends BaseRequest
 {

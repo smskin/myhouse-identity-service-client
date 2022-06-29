@@ -1,13 +1,13 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers;
 
 use Illuminate\Contracts\Encryption\DecryptException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Contracts\Http\Parser;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Exceptions\TokenInvalidException;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Traits\KeyTrait;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Contracts\Http\Parser;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions\TokenInvalidException;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Traits\KeyTrait;
 
 class Cookies implements Parser
 {

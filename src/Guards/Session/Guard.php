@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Session;
+namespace SMSkin\IdentityServiceClient\Guards\Session;
 
 use Exception;
 use GuzzleHttp\Exception\GuzzleException;
@@ -10,19 +10,19 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Cookie\QueueingFactory as CookieJar;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Log;
-use MyHouse\IdentityServiceClient\Api\DTO\Auth\RJwt;
-use MyHouse\IdentityServiceClient\Api\DTO\Auth\RToken;
-use MyHouse\IdentityServiceClient\Api\DTO\Identity\RIdentity;
-use MyHouse\IdentityServiceClient\Api\Requests\Auth\Auth\Login as AuthorizeByEmail;
-use MyHouse\IdentityServiceClient\Api\Requests\Auth\Auth\Validate as ValidateByEmail;
-use MyHouse\IdentityServiceClient\Api\Requests\Auth\Jwt\Refresh;
-use MyHouse\IdentityServiceClient\Api\Requests\Identity\GetIdentity;
-use MyHouse\IdentityServiceClient\Api\Requests\Identity\Logout;
-use MyHouse\IdentityServiceClient\Guards\Session\Exceptions\MutexException;
-use MyHouse\IdentityServiceClient\Guards\Session\Exceptions\UnsupportedGuardMethod;
-use MyHouse\IdentityServiceClient\Guards\Session\Support\TokenStorage;
-use MyHouse\IdentityServiceClient\Models\Contracts\HasIdentity;
-use MyHouse\IdentityServiceClient\Repository\UserRepository;
+use SMSkin\IdentityServiceClient\Api\DTO\Auth\RJwt;
+use SMSkin\IdentityServiceClient\Api\DTO\Auth\RToken;
+use SMSkin\IdentityServiceClient\Api\DTO\Identity\RIdentity;
+use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Login as AuthorizeByEmail;
+use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Validate as ValidateByEmail;
+use SMSkin\IdentityServiceClient\Api\Requests\Auth\Jwt\Refresh;
+use SMSkin\IdentityServiceClient\Api\Requests\Identity\GetIdentity;
+use SMSkin\IdentityServiceClient\Api\Requests\Identity\Logout;
+use SMSkin\IdentityServiceClient\Guards\Session\Exceptions\MutexException;
+use SMSkin\IdentityServiceClient\Guards\Session\Exceptions\UnsupportedGuardMethod;
+use SMSkin\IdentityServiceClient\Guards\Session\Support\TokenStorage;
+use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
+use SMSkin\IdentityServiceClient\Repository\UserRepository;
 use Symfony\Component\HttpFoundation\Request;
 use SyncMutex;
 use function app;

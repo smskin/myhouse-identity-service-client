@@ -1,9 +1,9 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Requests\Auth\Auth;
+namespace SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth;
 
-use MyHouse\IdentityServiceClient\Api\DTO\ROperationResult;
-use MyHouse\IdentityServiceClient\Api\Requests\BaseRequest;
+use SMSkin\IdentityServiceClient\Api\DTO\ROperationResult;
+use SMSkin\IdentityServiceClient\Api\Requests\BaseRequest;
 use GuzzleHttp\Exception\GuzzleException;
 
 class Validate extends BaseRequest

@@ -1,11 +1,11 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Models;
+namespace SMSkin\IdentityServiceClient\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use MyHouse\IdentityServiceClient\Models\Contracts\HasIdentity;
+use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use MyHouse\IdentityServiceClient\Models\Traits\IdentityTrait;
+use SMSkin\IdentityServiceClient\Models\Traits\IdentityTrait;
 
 class User extends Authenticatable implements HasIdentity, AuthenticatableContract
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Models\Contracts;
+namespace SMSkin\IdentityServiceClient\Models\Contracts;
 
 use Illuminate\Contracts\Queue\QueueableEntity;
-use MyHouse\IdentityServiceClient\Api\DTO\Identity\RIdentity;
+use SMSkin\IdentityServiceClient\Api\DTO\Identity\RIdentity;
 
 interface HasIdentity extends QueueableEntity
 {

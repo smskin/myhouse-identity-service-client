@@ -1,9 +1,9 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Requests\Identity;
+namespace SMSkin\IdentityServiceClient\Api\Requests\Identity;
 
 use GuzzleHttp\Exception\GuzzleException;
-use MyHouse\IdentityServiceClient\Api\Requests\BaseRequest;
+use SMSkin\IdentityServiceClient\Api\Requests\BaseRequest;
 
 class Logout extends BaseRequest
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt;
 
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Auth\Events\Attempting;
@@ -12,14 +12,14 @@ use Illuminate\Contracts\Auth\UserProvider;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Traits\Macroable;
-use MyHouse\IdentityServiceClient\Api\Requests\Auth\Auth\Login as AuthorizeByEmail;
-use MyHouse\IdentityServiceClient\Api\Requests\Auth\Auth\Validate as ValidateByEmail;
-use MyHouse\IdentityServiceClient\Api\Requests\Identity\GetIdentity;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Contracts\BaseGuard as GuardContract;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Exceptions\JWTException;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Exceptions\UserNotDefinedException;
-use MyHouse\IdentityServiceClient\Models\Contracts\HasIdentity;
-use MyHouse\IdentityServiceClient\Repository\UserRepository;
+use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Login as AuthorizeByEmail;
+use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Validate as ValidateByEmail;
+use SMSkin\IdentityServiceClient\Api\Requests\Identity\GetIdentity;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Contracts\BaseGuard as GuardContract;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions\JWTException;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions\UserNotDefinedException;
+use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
+use SMSkin\IdentityServiceClient\Repository\UserRepository;
 
 class Guard implements GuardContract
 {

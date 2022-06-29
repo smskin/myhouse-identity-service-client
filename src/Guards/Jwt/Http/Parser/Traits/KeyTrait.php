@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Traits;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Traits;
 
 trait KeyTrait
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Models\Traits;
+namespace SMSkin\IdentityServiceClient\Models\Traits;
 
-use MyHouse\IdentityServiceClient\Api\DTO\Identity\RIdentity;
+use SMSkin\IdentityServiceClient\Api\DTO\Identity\RIdentity;
 
 trait IdentityTrait
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Repository;
+namespace SMSkin\IdentityServiceClient\Repository;
 
-use MyHouse\IdentityServiceClient\Api\DTO\Identity\RIdentity;
-use MyHouse\IdentityServiceClient\Models\Contracts\HasIdentity;
-use MyHouse\IdentityServiceClient\Traits\ClassFromConfig;
+use SMSkin\IdentityServiceClient\Api\DTO\Identity\RIdentity;
+use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
+use SMSkin\IdentityServiceClient\Traits\ClassFromConfig;
 
 class UserRepository
 {

@@ -1,10 +1,10 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Requests\Identity;
+namespace SMSkin\IdentityServiceClient\Api\Requests\Identity;
 
 use Illuminate\Support\Facades\Cache;
-use MyHouse\IdentityServiceClient\Api\DTO\Identity\RIdentity;
-use MyHouse\IdentityServiceClient\Api\Requests\BaseRequest;
+use SMSkin\IdentityServiceClient\Api\DTO\Identity\RIdentity;
+use SMSkin\IdentityServiceClient\Api\Requests\BaseRequest;
 use GuzzleHttp\Exception\GuzzleException;
 
 class GetIdentity extends BaseRequest

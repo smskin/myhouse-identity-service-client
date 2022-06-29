@@ -1,8 +1,8 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Requests;
+namespace SMSkin\IdentityServiceClient\Api\Requests;
 
-use MyHouse\IdentityServiceClient\Api\Support\ApiClient;
+use SMSkin\IdentityServiceClient\Api\Support\ApiClient;
 use function app;
 
 abstract class BaseRequest

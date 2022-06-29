@@ -1,6 +1,6 @@
 <?php
 
-use MyHouse\IdentityServiceClient\Models\User;
+use SMSkin\IdentityServiceClient\Models\User;
 
 return [
     'debug' => env('IDENTITY_SERVICE_CLIENT_DEBUG', false),

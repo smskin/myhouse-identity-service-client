@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt\Exceptions;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions;
 
 use Exception;
 

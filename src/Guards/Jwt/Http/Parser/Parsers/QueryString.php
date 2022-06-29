@@ -1,10 +1,10 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Parsers;
 
 use Illuminate\Http\Request;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Contracts\Http\Parser;
-use MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser\Traits\KeyTrait;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Contracts\Http\Parser;
+use SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser\Traits\KeyTrait;
 
 class QueryString implements Parser
 {

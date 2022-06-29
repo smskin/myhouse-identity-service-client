@@ -1,9 +1,9 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\Providers;
+namespace SMSkin\IdentityServiceClient\Api\Providers;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
-use MyHouse\IdentityServiceClient\Api\Support\ApiClient;
+use SMSkin\IdentityServiceClient\Api\Support\ApiClient;
 
 class ServiceProvider extends BaseServiceProvider
 {

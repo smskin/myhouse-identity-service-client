@@ -13,7 +13,7 @@ Identity service library consists of 2 parts:
 
 ## Installation
 
-1. Run `composer require smskin/laravel-identity-service-client`
+1. Run `composer require smskin/myhouse-identity-service-client`
 2. Run `php artisan vendor:publish --tag=identity-service-client`
 3. Configure identity service client with `identity-service-client.php` in config folder and environments
 4. Change create user table migration file
@@ -54,8 +54,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use MyHouse\IdentityServiceClient\Models\Contracts\HasIdentity;
-use MyHouse\IdentityServiceClient\Models\Traits\IdentityTrait;
+use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
+use SMSkin\IdentityServiceClient\Models\Traits\IdentityTrait;
 
 class User extends Authenticatable implements HasIdentity
 {

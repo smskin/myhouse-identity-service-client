@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Api\DTO\Auth;
+namespace SMSkin\IdentityServiceClient\Api\DTO\Auth;
 
 use SMSkin\LaravelSupport\Contracts\Arrayable;
 

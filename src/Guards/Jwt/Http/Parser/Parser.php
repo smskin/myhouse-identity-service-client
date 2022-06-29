@@ -1,6 +1,6 @@
 <?php
 
-namespace MyHouse\IdentityServiceClient\Guards\Jwt\Http\Parser;
+namespace SMSkin\IdentityServiceClient\Guards\Jwt\Http\Parser;
 
 use Illuminate\Http\Request;
 

@@ -49,4 +49,84 @@ class RIdentity implements Arrayable
         $this->updatedAt = $data['updatedAt'] ? Carbon::make($data['updatedAt']) : null;
         return $this;
     }
+
+    /**
+     * @param string $uuid
+     * @return RIdentity
+     */
+    public function setUuid(string $uuid): RIdentity
+    {
+        $this->uuid = $uuid;
+        return $this;
+    }
+
+    /**
+     * @param string $email
+     * @return RIdentity
+     */
+    public function setEmail(string $email): RIdentity
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @param string $phone
+     * @return RIdentity
+     */
+    public function setPhone(string $phone): RIdentity
+    {
+        $this->phone = $phone;
+        return $this;
+    }
+
+    /**
+     * @param string|null $name
+     * @return RIdentity
+     */
+    public function setName(?string $name): RIdentity
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * @param string|null $gender
+     * @return RIdentity
+     */
+    public function setGender(?string $gender): RIdentity
+    {
+        $this->gender = $gender;
+        return $this;
+    }
+
+    /**
+     * @param int|null $age
+     * @return RIdentity
+     */
+    public function setAge(?int $age): RIdentity
+    {
+        $this->age = $age;
+        return $this;
+    }
+
+    /**
+     * @param Carbon|null $createdAt
+     * @return RIdentity
+     */
+    public function setCreatedAt(?Carbon $createdAt): RIdentity
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * @param Carbon|null $updatedAt
+     * @return RIdentity
+     */
+    public function setUpdatedAt(?Carbon $updatedAt): RIdentity
+    {
+        $this->updatedAt = $updatedAt;
+        return $this;
+    }
 }

@@ -6,7 +6,7 @@ use SMSkin\IdentityServiceClient\Api\DTO\Identity\RIdentity;
 
 trait IdentityTrait
 {
-    protected ?RIdentity $identity;
+    protected ?RIdentity $identity = null;
 
     /**
      * @param RIdentity $identity
@@ -23,5 +23,10 @@ trait IdentityTrait
     public function getIdentity(): ?RIdentity
     {
         return $this->identity;
+    }
+
+    public function hasIdentity(): bool
+    {
+        return !is_null($this->identity);
     }
 }

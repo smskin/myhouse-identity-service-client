@@ -66,7 +66,10 @@ class TokenStorage
     private function getCacheKey(): string
     {
         if ($this->cookieExists()) {
-            return $this->getKeyFromCookie();
+            $key = $this->getKeyFromCookie();
+            if (!is_null($key)) {
+                return $key;
+            }
         }
 
         $key = $this->generateCacheKey();
@@ -82,10 +85,14 @@ class TokenStorage
         return $this->request->cookies->has($this->getCookieName());
     }
 
-    private function getKeyFromCookie(): string
+    private function getKeyFromCookie(): ?string
     {
         if (!$this->request) {
-            return false;
+            return null;
+        }
+        $cookie = $this->request->cookies->get($this->getCookieName());
+        if (is_null($cookie)) {
+            return null;
         }
         $cookie = $this->request->cookies->get($this->getCookieName());
         try {

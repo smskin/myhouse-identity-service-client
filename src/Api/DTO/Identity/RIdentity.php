@@ -19,6 +19,8 @@ class RIdentity implements Arrayable
 
     public ?int $age;
 
+    public ?array $role;
+
     public ?Carbon $createdAt;
 
     public ?Carbon $updatedAt;
@@ -32,6 +34,7 @@ class RIdentity implements Arrayable
             'name' => $this->name,
             'gender' => $this->gender,
             'age' => $this->age,
+            'role' => $this->role,
             'createdAt' => $this->createdAt?->toIso8601String(),
             'updatedAt' => $this->updatedAt?->toIso8601String()
         ];
@@ -45,6 +48,7 @@ class RIdentity implements Arrayable
         $this->name = $data['name'];
         $this->gender = $data['gender'];
         $this->age = $data['age'];
+        $this->role = $data['role'];
         $this->createdAt = $data['createdAt'] ? Carbon::make($data['createdAt']) : null;
         $this->updatedAt = $data['updatedAt'] ? Carbon::make($data['updatedAt']) : null;
         return $this;
@@ -107,6 +111,16 @@ class RIdentity implements Arrayable
     public function setAge(?int $age): RIdentity
     {
         $this->age = $age;
+        return $this;
+    }
+
+    /**
+     * @param array|null $role
+     * @return $this
+     */
+    public function setRole(?array $role): RIdentity
+    {
+        $this->role = $role;
         return $this;
     }
 

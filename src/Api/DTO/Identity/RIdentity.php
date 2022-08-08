@@ -21,6 +21,8 @@ class RIdentity implements Arrayable
 
     public ?array $role;
 
+    public ?array $permissions;
+
     public ?Carbon $createdAt;
 
     public ?Carbon $updatedAt;
@@ -35,6 +37,7 @@ class RIdentity implements Arrayable
             'gender' => $this->gender,
             'age' => $this->age,
             'role' => $this->role,
+            'permissions' => $this->permissions,
             'createdAt' => $this->createdAt?->toIso8601String(),
             'updatedAt' => $this->updatedAt?->toIso8601String()
         ];
@@ -42,6 +45,7 @@ class RIdentity implements Arrayable
 
     public function fromArray(array $data): static
     {
+        dd($data);
         $this->uuid = $data['uuid'];
         $this->email = $data['email'];
         $this->phone = $data['phone'];
@@ -49,6 +53,7 @@ class RIdentity implements Arrayable
         $this->gender = $data['gender'];
         $this->age = $data['age'];
         $this->role = $data['role'];
+        $this->permissions = $data['permissions'];
         $this->createdAt = $data['createdAt'] ? Carbon::make($data['createdAt']) : null;
         $this->updatedAt = $data['updatedAt'] ? Carbon::make($data['updatedAt']) : null;
         return $this;
@@ -121,6 +126,16 @@ class RIdentity implements Arrayable
     public function setRole(?array $role): RIdentity
     {
         $this->role = $role;
+        return $this;
+    }
+
+    /**
+     * @param array|null $role
+     * @return $this
+     */
+    public function setPermissions(?array $permissions): RIdentity
+    {
+        $this->permissions = $permissions;
         return $this;
     }
 

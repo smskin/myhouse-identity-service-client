@@ -129,7 +129,7 @@ class RIdentity implements Arrayable
     }
 
     /**
-     * @param array|null $role
+     * @param array|null $permissions
      * @return $this
      */
     public function setPermissions(?array $permissions): RIdentity

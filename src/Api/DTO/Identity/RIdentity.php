@@ -45,7 +45,6 @@ class RIdentity implements Arrayable
 
     public function fromArray(array $data): static
     {
-        dd($data);
         $this->uuid = $data['uuid'];
         $this->email = $data['email'];
         $this->phone = $data['phone'];

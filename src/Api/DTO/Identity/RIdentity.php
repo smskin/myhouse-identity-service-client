@@ -19,9 +19,7 @@ class RIdentity implements Arrayable
 
     public ?int $age;
 
-    public ?array $role;
-
-    public ?array $permissions;
+    public ?RRole $role;
 
     public ?Carbon $createdAt;
 
@@ -36,8 +34,7 @@ class RIdentity implements Arrayable
             'name' => $this->name,
             'gender' => $this->gender,
             'age' => $this->age,
-            'role' => $this->role,
-            'permissions' => $this->permissions,
+            'role' => $this->role?->toArray(),
             'createdAt' => $this->createdAt?->toIso8601String(),
             'updatedAt' => $this->updatedAt?->toIso8601String()
         ];
@@ -51,8 +48,7 @@ class RIdentity implements Arrayable
         $this->name = $data['name'];
         $this->gender = $data['gender'];
         $this->age = $data['age'];
-        $this->role = $data['role'] ?? null;
-        $this->permissions = $data['permissions'] ?? null;
+        $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
         $this->createdAt = $data['createdAt'] ? Carbon::make($data['createdAt']) : null;
         $this->updatedAt = $data['updatedAt'] ? Carbon::make($data['updatedAt']) : null;
         return $this;
@@ -119,26 +115,6 @@ class RIdentity implements Arrayable
     }
 
     /**
-     * @param array|null $role
-     * @return $this
-     */
-    public function setRole(?array $role): RIdentity
-    {
-        $this->role = $role;
-        return $this;
-    }
-
-    /**
-     * @param array|null $permissions
-     * @return $this
-     */
-    public function setPermissions(?array $permissions): RIdentity
-    {
-        $this->permissions = $permissions;
-        return $this;
-    }
-
-    /**
      * @param Carbon|null $createdAt
      * @return RIdentity
      */
@@ -155,6 +131,16 @@ class RIdentity implements Arrayable
     public function setUpdatedAt(?Carbon $updatedAt): RIdentity
     {
         $this->updatedAt = $updatedAt;
+        return $this;
+    }
+
+    /**
+     * @param RRole|null $role
+     * @return RIdentity
+     */
+    public function setRole(?RRole $role): RIdentity
+    {
+        $this->role = $role;
         return $this;
     }
 }

@@ -35,6 +35,7 @@ class RIdentity implements Arrayable
     public ?Carbon $createdAt;
 
     public ?Carbon $updatedAt;
+    public ?string $fio;
 
     public function toArray(): array
     {
@@ -43,6 +44,12 @@ class RIdentity implements Arrayable
             'email' => $this->email,
             'phone' => $this->phone,
             'name' => $this->name,
+            'surname' => $this->surname,
+            'patronymic' => $this->patronymic,
+            'withoutPatronymic' => $this->withoutPatronymic,
+            'identityConfirmed' => $this->identityConfirmed,
+            'avatar' => $this->avatar,
+            'fio' => $this->fio,
             'gender' => $this->gender,
             'age' => $this->age,
             'role' => $this->role?->toArray(),
@@ -57,6 +64,12 @@ class RIdentity implements Arrayable
         $this->email = $data['email'];
         $this->phone = $data['phone'];
         $this->name = $data['name'];
+        $this->surname = $data['surname'];
+        $this->patronymic = $data['patronymic'];
+        $this->withoutPatronymic = $data['withoutPatronymic'];
+        $this->identityConfirmed = $data['identityConfirmed'];
+        $this->avatar = $data['avatar'];
+        $this->fio = $data['fio'];
         $this->gender = $data['gender'];
         $this->age = $data['age'];
         $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
@@ -136,6 +149,16 @@ class RIdentity implements Arrayable
     }
 
     /**
+     * @param string|null $fio
+     * @return RIdentity
+     */
+    public function setFio(?string $fio): RIdentity
+    {
+        $this->fio = $fio;
+        return $this;
+    }
+
+    /**
      * @param string|null $gender
      * @return RIdentity
      */
@@ -192,6 +215,12 @@ class RIdentity implements Arrayable
     public function setAvatar(string $avatar): RIdentity
     {
         $this->avatar = $avatar;
+        return $this;
+    }
+
+    public function setIdentityConfirmed(bool $identityConfirmed): RIdentity
+    {
+        $this->identityConfirmed = $identityConfirmed;
         return $this;
     }
 }

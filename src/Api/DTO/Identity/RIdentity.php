@@ -3,6 +3,7 @@
 namespace SMSkin\IdentityServiceClient\Api\DTO\Identity;
 
 use Carbon\Carbon;
+use Illuminate\Http\UploadedFile;
 use SMSkin\LaravelSupport\Contracts\Arrayable;
 
 class RIdentity implements Arrayable
@@ -20,6 +21,16 @@ class RIdentity implements Arrayable
     public ?int $age;
 
     public ?RRole $role;
+
+    public bool $identityConfirmed;
+
+    public ?string $surname;
+
+    public ?string $patronymic;
+
+    public ?bool $withoutPatronymic;
+
+    public ?string $avatar;
 
     public ?Carbon $createdAt;
 
@@ -95,6 +106,36 @@ class RIdentity implements Arrayable
     }
 
     /**
+     * @param string|null $surname
+     * @return RIdentity
+     */
+    public function setSurname(?string $surname): RIdentity
+    {
+        $this->surname = $surname;
+        return $this;
+    }
+
+    /**
+     * @param string|null $patronymic
+     * @return RIdentity
+     */
+    public function setPatronymic(?string $patronymic): RIdentity
+    {
+        $this->patronymic = $patronymic;
+        return $this;
+    }
+
+    /**
+     * @param bool|null $withoutPatronymic
+     * @return RIdentity
+     */
+    public function setWithoutPatronymic(?bool $withoutPatronymic): RIdentity
+    {
+        $this->withoutPatronymic = $withoutPatronymic;
+        return $this;
+    }
+
+    /**
      * @param string|null $gender
      * @return RIdentity
      */
@@ -141,6 +182,16 @@ class RIdentity implements Arrayable
     public function setRole(?RRole $role): RIdentity
     {
         $this->role = $role;
+        return $this;
+    }
+
+    /**
+     * @param string $avatar
+     * @return RIdentity
+     */
+    public function setAvatar(string $avatar): RIdentity
+    {
+        $this->avatar = $avatar;
         return $this;
     }
 }

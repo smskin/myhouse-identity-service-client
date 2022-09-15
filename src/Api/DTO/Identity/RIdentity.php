@@ -3,7 +3,6 @@
 namespace SMSkin\IdentityServiceClient\Api\DTO\Identity;
 
 use Carbon\Carbon;
-use Illuminate\Http\UploadedFile;
 use SMSkin\LaravelSupport\Contracts\Arrayable;
 
 class RIdentity implements Arrayable

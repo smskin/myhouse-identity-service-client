@@ -35,7 +35,8 @@ class RIdentity implements Arrayable
     public ?Carbon $createdAt;
 
     public ?Carbon $updatedAt;
-    public ?string $fio;
+
+    public ?string $fullName;
 
     public function toArray(): array
     {
@@ -49,7 +50,7 @@ class RIdentity implements Arrayable
             'withoutPatronymic' => $this->withoutPatronymic,
             'identityConfirmed' => $this->identityConfirmed,
             'avatar' => $this->avatar,
-            'fio' => $this->fio,
+            'fullName' => $this->fullName,
             'gender' => $this->gender,
             'age' => $this->age,
             'role' => $this->role?->toArray(),
@@ -69,7 +70,7 @@ class RIdentity implements Arrayable
         $this->withoutPatronymic = $data['withoutPatronymic'];
         $this->identityConfirmed = $data['identityConfirmed'];
         $this->avatar = $data['avatar'];
-        $this->fio = $data['fio'];
+        $this->fullName = $data['fullName'];
         $this->gender = $data['gender'];
         $this->age = $data['age'];
         $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
@@ -149,12 +150,12 @@ class RIdentity implements Arrayable
     }
 
     /**
-     * @param string|null $fio
+     * @param string|null $fullName
      * @return RIdentity
      */
-    public function setFio(?string $fio): RIdentity
+    public function setFullName(?string $fullName): RIdentity
     {
-        $this->fio = $fio;
+        $this->fullName = $fullName;
         return $this;
     }
 

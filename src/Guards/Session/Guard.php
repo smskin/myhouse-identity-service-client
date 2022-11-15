@@ -18,7 +18,7 @@ use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Validate as ValidateByEm
 use SMSkin\IdentityServiceClient\Api\Requests\Auth\Jwt\Refresh;
 use SMSkin\IdentityServiceClient\Api\Requests\Identity\GetIdentity;
 use SMSkin\IdentityServiceClient\Api\Requests\Identity\Logout;
-use SMSkin\IdentityServiceClient\Guards\Session\Exceptions\MutexException;
+use SMSkin\IdentityServiceClient\Exceptions\MutexException;
 use SMSkin\IdentityServiceClient\Guards\Session\Exceptions\UnsupportedGuardMethod;
 use SMSkin\IdentityServiceClient\Guards\Session\Support\TokenStorage;
 use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
@@ -34,7 +34,7 @@ class Guard extends SessionGuard
      */
     protected $user;
 
-    protected ?RToken $accessToken = null;
+    protected RToken|null $accessToken = null;
 
     protected string $id;
 
@@ -42,7 +42,7 @@ class Guard extends SessionGuard
 
     protected bool $debug = false;
 
-    public function __construct($name, UserProvider $provider, Session $session, CookieJar $cookie, Request $request = null, bool $debug = false)
+    public function __construct($name, UserProvider $provider, Session $session, CookieJar $cookie, Request|null $request = null, bool $debug = false)
     {
         $this->id = uniqid();
         $this->cookie = $cookie;
@@ -59,13 +59,13 @@ class Guard extends SessionGuard
      * @return HasIdentity|null
      * @throws MutexException
      */
-    public function user(): ?HasIdentity
+    public function user(): HasIdentity|null
     {
         if ($this->loggedOut) {
             return null;
         }
 
-        if (!is_null($this->user)) {
+        if ($this->user !== null) {
             return $this->user;
         }
 
@@ -83,12 +83,15 @@ class Guard extends SessionGuard
     /**
      * @return HasIdentity|null
      * @throws MutexException
-     * @throws Exception
      */
-    private function getUserByToken(): ?HasIdentity
+    private function getUserByToken(): HasIdentity|null
     {
         $key = md5(static::class . '@getUserByToken') . '_' . $this->session->getId();
-        $mutex = new SyncMutex($key);
+        try {
+            $mutex = new SyncMutex($key);
+        } catch (Exception $exception) {
+            throw new MutexException($exception->getMessage(), $exception->getCode(), $exception);
+        }
         if (!$mutex->lock(10000)) {
             throw new MutexException('Can\'t lock (' . static::class . '@getUserByToken) within 10 seconds');
         }
@@ -249,11 +252,7 @@ class Guard extends SessionGuard
 
     public function logout(): void
     {
-        if ($this->loggedOut) {
-            return;
-        }
-
-        if (is_null($this->user)) {
+        if ($this->loggedOut || $this->user === null) {
             return;
         }
 
@@ -311,7 +310,7 @@ class Guard extends SessionGuard
      * @return RJwt|null
      * @throws MutexException
      */
-    private function getJwtByCredentials(string $phone, string $password): ?RJwt
+    private function getJwtByCredentials(string $phone, string $password): RJwt|null
     {
         try {
             $jwt = AuthorizeByEmail::execute($phone, $password);
@@ -322,7 +321,7 @@ class Guard extends SessionGuard
         }
     }
 
-    private function getRemoteIdentityByToken(RToken $token): ?RIdentity
+    private function getRemoteIdentityByToken(RToken $token): RIdentity|null
     {
         try {
             $identity = GetIdentity::execute($token->value);
@@ -333,6 +332,9 @@ class Guard extends SessionGuard
         return $identity;
     }
 
+    /**
+     * @throws MutexException
+     */
     private function getUserByIdentity(RIdentity $identity): HasIdentity
     {
         return UserRepository::create($identity);
@@ -356,8 +358,9 @@ class Guard extends SessionGuard
 
     /**
      * @return HasIdentity|null
+     * @throws MutexException
      */
-    private function getUserByAccessToken(): ?HasIdentity
+    private function getUserByAccessToken(): HasIdentity|null
     {
         $token = $this->storage->getAccessToken();
         if (!$token) {
@@ -388,7 +391,7 @@ class Guard extends SessionGuard
      * @return HasIdentity|null
      * @throws MutexException
      */
-    private function getUserByRefreshToken(): ?HasIdentity
+    private function getUserByRefreshToken(): HasIdentity|null
     {
         $token = $this->storage->getRefreshToken();
         if (!$token) {
@@ -415,12 +418,15 @@ class Guard extends SessionGuard
      * @param RToken $token
      * @return RJwt|null
      * @throws MutexException
-     * @throws Exception
      */
-    private function getJwtByRefreshToken(RToken $token): ?RJwt
+    private function getJwtByRefreshToken(RToken $token): RJwt|null
     {
         $key = md5(static::class . '_' . $token->value);
-        $mutex = new SyncMutex($key);
+        try {
+            $mutex = new SyncMutex($key);
+        } catch (Exception $exception) {
+            throw new MutexException($exception->getMessage(), $exception->getCode(), $exception);
+        }
         if (!$mutex->lock(10000)) {
             throw new MutexException('Can\'t lock (' . static::class . '@getJwtByRefreshToken) within 10 seconds');
         }
@@ -439,7 +445,7 @@ class Guard extends SessionGuard
      * @param RToken|null $accessToken
      * @return void
      */
-    private function setAccessToken(?RToken $accessToken): void
+    private function setAccessToken(RToken|null $accessToken): void
     {
         $this->accessToken = $accessToken;
     }

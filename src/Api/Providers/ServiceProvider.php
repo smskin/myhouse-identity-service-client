@@ -9,7 +9,7 @@ class ServiceProvider extends BaseServiceProvider
 {
     public function register()
     {
-        $this->app->singleton(ApiClient::class, function () {
+        $this->app->singleton(ApiClient::class, static function () {
             return new ApiClient(
                 config('identity-service-client.host.host')
             );

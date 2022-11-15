@@ -16,7 +16,7 @@ class Parser
         $this->chain = $chain;
     }
 
-    public function parseToken(): ?string
+    public function parseToken(): string|null
     {
         foreach ($this->chain as $parser) {
             if ($response = $parser->parse($this->request)) {

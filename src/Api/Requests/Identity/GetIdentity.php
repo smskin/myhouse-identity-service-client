@@ -38,7 +38,7 @@ class GetIdentity extends BaseRequest
         return 'api_request_cache_' . md5(static::class . '_' . $token);
     }
 
-    private static function getIdentityFromCache(string $token): ?RIdentity
+    private static function getIdentityFromCache(string $token): RIdentity|null
     {
         $data = Cache::get(self::getCacheKey($token));
         if (!$data) {

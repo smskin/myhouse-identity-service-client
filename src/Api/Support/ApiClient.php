@@ -2,25 +2,21 @@
 
 namespace SMSkin\IdentityServiceClient\Api\Support;
 
-use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
+use RuntimeException;
 use function app;
 
 class ApiClient
 {
-    protected ?string $accessToken = null;
+    protected string|null $accessToken = null;
 
-    /**
-     * @param string $host
-     * @throws Exception
-     */
     public function __construct(protected string $host)
     {
         if (!$host) {
-            throw new Exception('Api host not defined');
+            throw new RuntimeException('Api host not defined');
         }
     }
 
@@ -90,7 +86,7 @@ class ApiClient
      * @param string|null $accessToken
      * @return ApiClient
      */
-    public function setAccessToken(?string $accessToken): ApiClient
+    public function setAccessToken(string|null $accessToken): self
     {
         $this->accessToken = $accessToken;
         return $this;

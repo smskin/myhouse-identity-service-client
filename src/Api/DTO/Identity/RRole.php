@@ -17,7 +17,7 @@ class RRole implements Arrayable
     public function fromArray(array $data): static
     {
         $this->id = $data['id'];
-        $this->permissions = collect($data['permissions'])->map(function ($data) {
+        $this->permissions = collect($data['permissions'])->map(static function ($data) {
             return (new RPermission())->fromArray($data);
         });
         return $this;

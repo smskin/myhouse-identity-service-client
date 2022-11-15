@@ -11,12 +11,12 @@ class AuthHeaders implements Parser
 
     protected string $prefix = 'bearer';
 
-    protected function fromAltHeaders(Request $request): ?string
+    protected function fromAltHeaders(Request $request): string|null
     {
         return $request->server->get('HTTP_AUTHORIZATION') ?: $request->server->get('REDIRECT_HTTP_AUTHORIZATION');
     }
 
-    public function parse(Request $request): ?string
+    public function parse(Request $request): string|null
     {
         $header = $request->headers->get($this->header) ?: $this->fromAltHeaders($request);
 

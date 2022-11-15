@@ -17,11 +17,11 @@ class ServiceProvider extends BaseServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         $this->registerParsers();
 
-        $this->app->singleton(JWT::class, fn($app) => (new JWT(
+        $this->app->singleton(JWT::class, static fn($app) => (new JWT(
             $app[Parser::class]
         )));
 
@@ -31,7 +31,7 @@ class ServiceProvider extends BaseServiceProvider
 
     private function registerParsers()
     {
-        $this->app->singleton(Parser::class, function ($app) {
+        $this->app->singleton(Parser::class, static function ($app) {
             $parser = new Parser(
                 $app['request'],
                 [
@@ -51,7 +51,7 @@ class ServiceProvider extends BaseServiceProvider
 
     private function registerGuard()
     {
-        $this->app['auth']->extend(config('identity-service-client.guards.jwt.driver.name'), function ($app, $name, array $config) {
+        $this->app['auth']->extend(config('identity-service-client.guards.jwt.driver.name'), static function ($app, $name, array $config) {
             $guard = new Guard(
                 app(JWT::class),
                 $app['auth']->createUserProvider($config['provider']),

@@ -15,6 +15,7 @@ use Illuminate\Support\Traits\Macroable;
 use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Login as AuthorizeByEmail;
 use SMSkin\IdentityServiceClient\Api\Requests\Auth\Auth\Validate as ValidateByEmail;
 use SMSkin\IdentityServiceClient\Api\Requests\Identity\GetIdentity;
+use SMSkin\IdentityServiceClient\Exceptions\MutexException;
 use SMSkin\IdentityServiceClient\Guards\Jwt\Contracts\BaseGuard as GuardContract;
 use SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions\JWTException;
 use SMSkin\IdentityServiceClient\Guards\Jwt\Exceptions\UserNotDefinedException;
@@ -49,13 +50,16 @@ class Guard implements GuardContract
         $this->name = $name;
     }
 
-    public function user(): ?HasIdentity
+    /**
+     * @throws MutexException
+     */
+    public function user(): HasIdentity|null
     {
         if ($this->loggedOut) {
             return null;
         }
 
-        if (!is_null($this->user)) {
+        if ($this->user !== null) {
             return $this->user;
         }
 
@@ -80,6 +84,7 @@ class Guard implements GuardContract
     /**
      * @return HasIdentity
      * @throws UserNotDefinedException
+     * @throws MutexException
      */
     public function userOrFail(): HasIdentity
     {
@@ -105,7 +110,7 @@ class Guard implements GuardContract
         return false;
     }
 
-    public function getToken(): ?JWT
+    public function getToken(): JWT|null
     {
         return $this->jwt;
     }
@@ -125,6 +130,9 @@ class Guard implements GuardContract
         $this->jwt->unsetToken();
     }
 
+    /**
+     * @throws MutexException
+     */
     public function attempt(array $credentials = [], $remember = false): bool
     {
         $phone = $credentials['phone'] ?? null;
@@ -152,6 +160,9 @@ class Guard implements GuardContract
         return $this->jwt;
     }
 
+    /**
+     * @throws MutexException
+     */
     private function attemptByEmail(string $phone, string $password): bool
     {
         try {

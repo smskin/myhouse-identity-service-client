@@ -10,7 +10,7 @@ class RouteParams implements Parser
 {
     use KeyTrait;
 
-    public function parse(Request $request): ?string
+    public function parse(Request $request): string|null
     {
         $route = $request->route();
 

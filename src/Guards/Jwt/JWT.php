@@ -12,14 +12,14 @@ class JWT
 {
     protected Parser $parser;
 
-    protected ?string $token = null;
+    protected string|null $token = null;
 
     public function __construct(Parser $parser)
     {
         $this->parser = $parser;
     }
 
-    public function getToken(): ?string
+    public function getToken(): string|null
     {
         if ($this->token === null) {
             try {
@@ -49,7 +49,7 @@ class JWT
      * @return void
      * @throws JWTException
      */
-    public function invalidate()
+    public function invalidate(): void
     {
         $this->requireToken();
 
@@ -60,7 +60,7 @@ class JWT
         }
     }
 
-    public function setToken(?string $token): JWT
+    public function setToken(string|null $token): self
     {
         $this->token = $token;
         return $this;
@@ -84,7 +84,7 @@ class JWT
      * @return void
      * @throws JWTException
      */
-    private function requireToken()
+    private function requireToken(): void
     {
         if (!$this->token) {
             throw new JWTException('A token is required');

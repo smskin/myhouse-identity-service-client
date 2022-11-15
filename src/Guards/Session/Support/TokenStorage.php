@@ -15,7 +15,7 @@ class TokenStorage
 {
     protected string $key;
 
-    public function __construct(protected Session $session, protected CookieJar $cookie, protected ?Request $request = null)
+    public function __construct(protected Session $session, protected CookieJar $cookie, protected Request|null $request = null)
     {
         $this->key = $this->getCacheKey();
     }
@@ -25,7 +25,7 @@ class TokenStorage
         return Cache::has($this->key);
     }
 
-    public function get(): ?RJwt
+    public function get(): RJwt|null
     {
         $data = Cache::get($this->key);
         if (!$data) {
@@ -34,31 +34,25 @@ class TokenStorage
         return (new RJwt())->fromArray($data);
     }
 
-    public function getAccessToken(): ?RToken
+    public function getAccessToken(): RToken|null
     {
         $jwt = $this->get();
-        if (!$jwt) {
-            return null;
-        }
-        return $jwt->accessToken;
+        return $jwt?->accessToken;
     }
 
-    public function getRefreshToken(): ?RToken
+    public function getRefreshToken(): RToken|null
     {
         $jwt = $this->get();
-        if (!$jwt) {
-            return null;
-        }
-        return $jwt->refreshToken;
+        return $jwt?->refreshToken;
     }
 
-    public function put(RJwt $jwt, bool $remember = false)
+    public function put(RJwt $jwt, bool $remember = false): void
     {
         $expireAt = $remember ? $jwt->refreshToken->expireAt : $jwt->accessToken->expireAt;
         Cache::put($this->key, $jwt->toArray(), $expireAt);
     }
 
-    public function drop()
+    public function drop(): void
     {
         Cache::forget($this->key);
     }
@@ -67,7 +61,7 @@ class TokenStorage
     {
         if ($this->cookieExists()) {
             $key = $this->getKeyFromCookie();
-            if (!is_null($key)) {
+            if ($key !== null) {
                 return $key;
             }
         }
@@ -85,13 +79,13 @@ class TokenStorage
         return $this->request->cookies->has($this->getCookieName());
     }
 
-    private function getKeyFromCookie(): ?string
+    private function getKeyFromCookie(): string|null
     {
         if (!$this->request) {
             return null;
         }
         $cookie = $this->request->cookies->get($this->getCookieName());
-        if (is_null($cookie)) {
+        if ($cookie === null) {
             return null;
         }
         $cookie = $this->request->cookies->get($this->getCookieName());
@@ -104,7 +98,7 @@ class TokenStorage
         return $cookie;
     }
 
-    private function putKeyToCookie(string $key)
+    private function putKeyToCookie(string $key): void
     {
         $cookie = $this->cookie->make($this->getCookieName(), $key, 2628000);
         $this->cookie->queue($cookie);

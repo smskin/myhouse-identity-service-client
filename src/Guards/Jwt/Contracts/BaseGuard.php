@@ -10,7 +10,7 @@ use SMSkin\IdentityServiceClient\Models\Contracts\HasIdentity;
 
 interface BaseGuard extends Guard
 {
-    public function getToken(): ?JWT;
+    public function getToken(): JWT|null;
 
     /**
      * @return HasIdentity

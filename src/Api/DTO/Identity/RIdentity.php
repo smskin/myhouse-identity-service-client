@@ -13,29 +13,29 @@ class RIdentity implements Arrayable
 
     public string $phone;
 
-    public ?string $name;
+    public string|null $name;
 
-    public ?string $gender;
+    public string|null $gender;
 
-    public ?int $age;
+    public int|null $age;
 
-    public ?RRole $role;
+    public RRole|null $role;
 
     public bool $identityConfirmed;
 
-    public ?string $surname;
+    public string|null $surname;
 
-    public ?string $patronymic;
+    public string|null $patronymic;
 
-    public ?bool $withoutPatronymic;
+    public bool|null $withoutPatronymic;
 
-    public ?string $avatar;
+    public string|null $avatar;
 
-    public ?Carbon $createdAt;
+    public Carbon|null $createdAt;
 
-    public ?Carbon $updatedAt;
+    public Carbon|null $updatedAt;
 
-    public ?string $fullName;
+    public string|null $fullName;
 
     public function toArray(): array
     {
@@ -82,7 +82,7 @@ class RIdentity implements Arrayable
      * @param string $uuid
      * @return RIdentity
      */
-    public function setUuid(string $uuid): RIdentity
+    public function setUuid(string $uuid): self
     {
         $this->uuid = $uuid;
         return $this;
@@ -92,7 +92,7 @@ class RIdentity implements Arrayable
      * @param string $email
      * @return RIdentity
      */
-    public function setEmail(string $email): RIdentity
+    public function setEmail(string $email): self
     {
         $this->email = $email;
         return $this;
@@ -102,7 +102,7 @@ class RIdentity implements Arrayable
      * @param string $phone
      * @return RIdentity
      */
-    public function setPhone(string $phone): RIdentity
+    public function setPhone(string $phone): self
     {
         $this->phone = $phone;
         return $this;
@@ -112,7 +112,7 @@ class RIdentity implements Arrayable
      * @param string|null $name
      * @return RIdentity
      */
-    public function setName(?string $name): RIdentity
+    public function setName(string|null $name): self
     {
         $this->name = $name;
         return $this;
@@ -122,7 +122,7 @@ class RIdentity implements Arrayable
      * @param string|null $surname
      * @return RIdentity
      */
-    public function setSurname(?string $surname): RIdentity
+    public function setSurname(string|null $surname): self
     {
         $this->surname = $surname;
         return $this;
@@ -132,7 +132,7 @@ class RIdentity implements Arrayable
      * @param string|null $patronymic
      * @return RIdentity
      */
-    public function setPatronymic(?string $patronymic): RIdentity
+    public function setPatronymic(string|null $patronymic): self
     {
         $this->patronymic = $patronymic;
         return $this;
@@ -142,7 +142,7 @@ class RIdentity implements Arrayable
      * @param bool|null $withoutPatronymic
      * @return RIdentity
      */
-    public function setWithoutPatronymic(?bool $withoutPatronymic): RIdentity
+    public function setWithoutPatronymic(bool|null $withoutPatronymic): self
     {
         $this->withoutPatronymic = $withoutPatronymic;
         return $this;
@@ -152,7 +152,7 @@ class RIdentity implements Arrayable
      * @param string|null $fullName
      * @return RIdentity
      */
-    public function setFullName(?string $fullName): RIdentity
+    public function setFullName(string|null $fullName): self
     {
         $this->fullName = $fullName;
         return $this;
@@ -162,7 +162,7 @@ class RIdentity implements Arrayable
      * @param string|null $gender
      * @return RIdentity
      */
-    public function setGender(?string $gender): RIdentity
+    public function setGender(string|null $gender): self
     {
         $this->gender = $gender;
         return $this;
@@ -172,7 +172,7 @@ class RIdentity implements Arrayable
      * @param int|null $age
      * @return RIdentity
      */
-    public function setAge(?int $age): RIdentity
+    public function setAge(int|null $age): self
     {
         $this->age = $age;
         return $this;
@@ -182,7 +182,7 @@ class RIdentity implements Arrayable
      * @param Carbon|null $createdAt
      * @return RIdentity
      */
-    public function setCreatedAt(?Carbon $createdAt): RIdentity
+    public function setCreatedAt(Carbon|null $createdAt): self
     {
         $this->createdAt = $createdAt;
         return $this;
@@ -192,7 +192,7 @@ class RIdentity implements Arrayable
      * @param Carbon|null $updatedAt
      * @return RIdentity
      */
-    public function setUpdatedAt(?Carbon $updatedAt): RIdentity
+    public function setUpdatedAt(Carbon|null $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
         return $this;
@@ -202,7 +202,7 @@ class RIdentity implements Arrayable
      * @param RRole|null $role
      * @return RIdentity
      */
-    public function setRole(?RRole $role): RIdentity
+    public function setRole(RRole|null $role): self
     {
         $this->role = $role;
         return $this;
@@ -212,13 +212,13 @@ class RIdentity implements Arrayable
      * @param string $avatar
      * @return RIdentity
      */
-    public function setAvatar(string $avatar): RIdentity
+    public function setAvatar(string $avatar): self
     {
         $this->avatar = $avatar;
         return $this;
     }
 
-    public function setIdentityConfirmed(bool $identityConfirmed): RIdentity
+    public function setIdentityConfirmed(bool $identityConfirmed): self
     {
         $this->identityConfirmed = $identityConfirmed;
         return $this;

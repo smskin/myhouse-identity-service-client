@@ -1,6 +1,6 @@
 <?php
 
-namespace SMSkin\IdentityServiceClient\Guards\Session\Exceptions;
+namespace SMSkin\IdentityServiceClient\Exceptions;
 
 use Exception;
 

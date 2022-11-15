@@ -25,7 +25,7 @@ class Cookies implements Parser
      * @return string|null
      * @throws TokenInvalidException
      */
-    public function parse(Request $request): ?string
+    public function parse(Request $request): string|null
     {
         if ($this->decrypt && $request->hasCookie($this->key)) {
             try {

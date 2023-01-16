@@ -17,6 +17,8 @@ class RIdentity implements Arrayable
 
     public string|null $gender;
 
+    public Carbon|null $birthdate;
+
     public int|null $age;
 
     public RRole|null $role;
@@ -51,6 +53,7 @@ class RIdentity implements Arrayable
             'avatar' => $this->avatar,
             'fullName' => $this->fullName,
             'gender' => $this->gender,
+            'birthdate' => $this->birthdate->toDateString(),
             'age' => $this->age,
             'role' => $this->role?->toArray(),
             'createdAt' => $this->createdAt?->toIso8601String(),
@@ -71,6 +74,7 @@ class RIdentity implements Arrayable
         $this->avatar = $data['avatar'];
         $this->fullName = $data['fullName'];
         $this->gender = $data['gender'];
+        $this->birthdate = $data['birthdate'];
         $this->age = $data['age'];
         $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
         $this->createdAt = $data['createdAt'] ? Carbon::make($data['createdAt']) : null;
@@ -221,6 +225,16 @@ class RIdentity implements Arrayable
     public function setIdentityConfirmed(bool $identityConfirmed): self
     {
         $this->identityConfirmed = $identityConfirmed;
+        return $this;
+    }
+
+    /**
+     * @param Carbon|null $birthdate
+     * @return RIdentity
+     */
+    public function setBirthdate(Carbon|null $birthdate): self
+    {
+        $this->birthdate = $birthdate;
         return $this;
     }
 }

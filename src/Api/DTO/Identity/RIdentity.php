@@ -53,7 +53,7 @@ class RIdentity implements Arrayable
             'avatar' => $this->avatar,
             'fullName' => $this->fullName,
             'gender' => $this->gender,
-            'birthdate' => $this->birthdate->toDateString(),
+            'birthdate' => $this->birthdate?->toDateString(),
             'age' => $this->age,
             'role' => $this->role?->toArray(),
             'createdAt' => $this->createdAt?->toIso8601String(),

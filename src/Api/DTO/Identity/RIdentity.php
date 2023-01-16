@@ -74,7 +74,7 @@ class RIdentity implements Arrayable
         $this->avatar = $data['avatar'];
         $this->fullName = $data['fullName'];
         $this->gender = $data['gender'];
-        $this->birthdate = $data['birthdate'];
+        $this->birthdate = $data['birthdate'] ? Carbon::make($data['birthdate']) : null;
         $this->age = $data['age'];
         $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
         $this->createdAt = $data['createdAt'] ? Carbon::make($data['createdAt']) : null;

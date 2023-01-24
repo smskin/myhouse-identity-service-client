@@ -3,6 +3,7 @@
 namespace SMSkin\IdentityServiceClient\Api\DTO\Identity;
 
 use Carbon\Carbon;
+use SMSkin\IdentityServiceClient\Enums\GenderEnum;
 use SMSkin\LaravelSupport\Contracts\Arrayable;
 
 class RIdentity implements Arrayable
@@ -15,7 +16,7 @@ class RIdentity implements Arrayable
 
     public string|null $name;
 
-    public string|null $gender;
+    public GenderEnum|null $gender;
 
     public Carbon|null $birthdate;
 
@@ -52,7 +53,7 @@ class RIdentity implements Arrayable
             'identityConfirmed' => $this->identityConfirmed,
             'avatar' => $this->avatar,
             'fullName' => $this->fullName,
-            'gender' => $this->gender,
+            'gender' => $this->gender?->value,
             'birthdate' => $this->birthdate?->toDateString(),
             'age' => $this->age,
             'role' => $this->role?->toArray(),
@@ -73,7 +74,7 @@ class RIdentity implements Arrayable
         $this->identityConfirmed = $data['identityConfirmed'];
         $this->avatar = $data['avatar'];
         $this->fullName = $data['fullName'];
-        $this->gender = $data['gender'];
+        $this->gender = $data['gender'] ? GenderEnum::from($data['gender']) : null;
         $this->birthdate = $data['birthdate'] ? Carbon::make($data['birthdate']) : null;
         $this->age = $data['age'];
         $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
@@ -163,10 +164,10 @@ class RIdentity implements Arrayable
     }
 
     /**
-     * @param string|null $gender
+     * @param GenderEnum|null $gender
      * @return RIdentity
      */
-    public function setGender(string|null $gender): self
+    public function setGender(GenderEnum|null $gender): self
     {
         $this->gender = $gender;
         return $this;

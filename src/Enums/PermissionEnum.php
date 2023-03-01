@@ -22,4 +22,33 @@ enum PermissionEnum: string
     case OMS_SHOW_LIST = '6bcbc318-08e0-4279-a5d2-e5eb4d09b4fc';
     case PAGE_CREATE_OR_UPDATE = '8ab5a867-6398-4832-a6ea-c0b2d94ee04e';
     case SYSTEM_VARIABLE_UPDATE = '8620fb45-efa6-4365-8212-9677c890fe69';
+
+    public static function names(): array
+    {
+        return [
+            self::ROLE_SHOW_LIST->value => 'Просмотр списка ролей',
+            self::ROLE_CREATE_OR_UPDATE->value => 'Создать/изменить роль',
+            self::USER_SHOW_LIST->value => 'Просмотр пользователей',
+            self::USER_CREATE_OR_UPDATE->value => 'Создание/изменение пользователей',
+            self::HOUSE_SHOW_LIST->value => 'Просмотр списка домов',
+            self::HOUSE_UPDATE->value => 'Изменение дома',
+            self::HOUSE_UPDATE_CLASS->value => 'Изменение класса дома',
+            self::HOUSE_UPDATE_CATEGORY->value => 'Изменение категории дома',
+            self::HOUSE_FLAT_SHOW_LIST->value => 'Просмотр списка квартир',
+            self::HOUSE_MASS_CREATE_FROM_GIS_HOUSE->value => 'Массовое создание макродомов из микродомов ГИС',
+            self::ORDER_GIS_REPORT->value => 'Запросы в ГИС',
+            self::ORDER_REFORMA_REPORT->value => 'Запросы в Реформу ЖКХ',
+            self::ORDER_ROSREESTR_REPORT->value => 'Запросы в РосРеестр',
+            self::MANAGEMENT_ORGANIZATION_SHOW_LIST->value => 'Просмотр списка УО/ТСЖ',
+            self::MANAGEMENT_ORGANIZATION_UPDATE->value => 'Изменение УО',
+            self::OMS_SHOW_LIST->value => 'Просмотр списка ОМС',
+            self::PAGE_CREATE_OR_UPDATE->value => 'Создание/изменение страниц',
+            self::SYSTEM_VARIABLE_UPDATE->value => 'Изменение системных настроек',
+        ];
+    }
+
+    public static function getName(PermissionEnum $permission): string
+    {
+        return self::names()[$permission->value];
+    }
 }

@@ -22,6 +22,8 @@ enum PermissionEnum: string
     case OMS_SHOW_LIST = '6bcbc318-08e0-4279-a5d2-e5eb4d09b4fc';
     case PAGE_CREATE_OR_UPDATE = '8ab5a867-6398-4832-a6ea-c0b2d94ee04e';
     case SYSTEM_VARIABLE_UPDATE = '8620fb45-efa6-4365-8212-9677c890fe69';
+    case QUOTE_SHOW_LIST = 'c849235f-5078-4d4e-aa88-81a96bd6e1e8';
+    case QUOTE_CREATE_OR_UPDATE = '107de799-c54c-4d29-b816-dc20ace92ed6';
 
     public static function names(): array
     {
@@ -44,6 +46,8 @@ enum PermissionEnum: string
             self::OMS_SHOW_LIST->value => 'Просмотр списка ОМС',
             self::PAGE_CREATE_OR_UPDATE->value => 'Создание/изменение страниц',
             self::SYSTEM_VARIABLE_UPDATE->value => 'Изменение системных настроек',
+            self::QUOTE_SHOW_LIST->value => 'Просмотр списка цитат',
+            self::QUOTE_CREATE_OR_UPDATE->value => 'Создание/изменение цитат'
         ];
     }
 

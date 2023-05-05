@@ -24,6 +24,7 @@ enum PermissionEnum: string
     case SYSTEM_VARIABLE_UPDATE = '8620fb45-efa6-4365-8212-9677c890fe69';
     case QUOTE_SHOW_LIST = 'c849235f-5078-4d4e-aa88-81a96bd6e1e8';
     case QUOTE_CREATE_OR_UPDATE = '107de799-c54c-4d29-b816-dc20ace92ed6';
+    case SHOW_PERSONAL_USER_PAGE = '21bbbca4-83eb-4d90-89eb-4fd2189f4473';
 
     public static function names(): array
     {
@@ -34,8 +35,6 @@ enum PermissionEnum: string
             self::USER_CREATE_OR_UPDATE->value => 'Создание/изменение пользователей',
             self::HOUSE_SHOW_LIST->value => 'Просмотр списка домов',
             self::HOUSE_UPDATE->value => 'Изменение дома',
-            self::HOUSE_UPDATE_CLASS->value => 'Изменение класса дома',
-            self::HOUSE_UPDATE_CATEGORY->value => 'Изменение категории дома',
             self::HOUSE_FLAT_SHOW_LIST->value => 'Просмотр списка квартир',
             self::HOUSE_MASS_CREATE_FROM_GIS_HOUSE->value => 'Массовое создание макродомов из микродомов ГИС',
             self::ORDER_GIS_REPORT->value => 'Запросы в ГИС',
@@ -46,8 +45,11 @@ enum PermissionEnum: string
             self::OMS_SHOW_LIST->value => 'Просмотр списка ОМС',
             self::PAGE_CREATE_OR_UPDATE->value => 'Создание/изменение страниц',
             self::SYSTEM_VARIABLE_UPDATE->value => 'Изменение системных настроек',
+            self::HOUSE_UPDATE_CLASS->value => 'Изменение класса дома',
+            self::HOUSE_UPDATE_CATEGORY->value => 'Изменение категории дома',
             self::QUOTE_SHOW_LIST->value => 'Просмотр списка цитат',
-            self::QUOTE_CREATE_OR_UPDATE->value => 'Создание/изменение цитат'
+            self::QUOTE_CREATE_OR_UPDATE->value => 'Создание/изменение цитат',
+            self::SHOW_PERSONAL_USER_PAGE->value => 'Просмотр страницы пользователя'
         ];
     }
 

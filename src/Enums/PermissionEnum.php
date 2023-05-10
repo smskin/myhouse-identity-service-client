@@ -25,6 +25,7 @@ enum PermissionEnum: string
     case QUOTE_SHOW_LIST = 'c849235f-5078-4d4e-aa88-81a96bd6e1e8';
     case QUOTE_CREATE_OR_UPDATE = '107de799-c54c-4d29-b816-dc20ace92ed6';
     case SHOW_PERSONAL_USER_PAGE = '21bbbca4-83eb-4d90-89eb-4fd2189f4473';
+    case NOTIFICATION_CREATE_OR_UPDATE = 'ab26a3a8-914f-4b3b-a741-01585da852a9';
 
     public static function names(): array
     {
@@ -49,7 +50,8 @@ enum PermissionEnum: string
             self::HOUSE_UPDATE_CATEGORY->value => 'Изменение категории дома',
             self::QUOTE_SHOW_LIST->value => 'Просмотр списка цитат',
             self::QUOTE_CREATE_OR_UPDATE->value => 'Создание/изменение цитат',
-            self::SHOW_PERSONAL_USER_PAGE->value => 'Просмотр страницы пользователя'
+            self::SHOW_PERSONAL_USER_PAGE->value => 'Просмотр страницы пользователя',
+            self::NOTIFICATION_CREATE_OR_UPDATE->value => 'Создание/изменение уведомлений'
         ];
     }
 

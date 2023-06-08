@@ -12,6 +12,7 @@ enum PermissionEnum: string
     case HOUSE_UPDATE = '3ea2d01d-7d5c-4fd5-9234-99a672fe7541';
     case HOUSE_UPDATE_CLASS = '50972dd3-cb39-47ac-8cc2-6768dd8d5013';
     case HOUSE_UPDATE_CATEGORY = '397b87dd-0c96-49e8-84a3-7c0397332402';
+    case HOUSE_UPDATE_BASIS_OF_MANAGEMENT = 'fb90dbc3-9db8-4cd4-ad81-70c179a2ddf3';
     case HOUSE_FLAT_SHOW_LIST = 'd785c0e0-705c-459b-ada3-a651c994af3f';
     case HOUSE_MASS_CREATE_FROM_GIS_HOUSE = '90f29f8a-5932-4ba6-b000-4c00c0527423';
     case ORDER_GIS_REPORT = '7728e920-8043-4547-9dee-26950e066e6f';
@@ -36,6 +37,9 @@ enum PermissionEnum: string
             self::USER_CREATE_OR_UPDATE->value => 'Создание/изменение пользователей',
             self::HOUSE_SHOW_LIST->value => 'Просмотр списка домов',
             self::HOUSE_UPDATE->value => 'Изменение дома',
+            self::HOUSE_UPDATE_CLASS->value => 'Изменение класса дома',
+            self::HOUSE_UPDATE_CATEGORY->value => 'Изменение категории дома',
+            self::HOUSE_UPDATE_BASIS_OF_MANAGEMENT->value => 'Изменения основания управления',
             self::HOUSE_FLAT_SHOW_LIST->value => 'Просмотр списка квартир',
             self::HOUSE_MASS_CREATE_FROM_GIS_HOUSE->value => 'Массовое создание макродомов из микродомов ГИС',
             self::ORDER_GIS_REPORT->value => 'Запросы в ГИС',
@@ -46,8 +50,6 @@ enum PermissionEnum: string
             self::OMS_SHOW_LIST->value => 'Просмотр списка ОМС',
             self::PAGE_CREATE_OR_UPDATE->value => 'Создание/изменение страниц',
             self::SYSTEM_VARIABLE_UPDATE->value => 'Изменение системных настроек',
-            self::HOUSE_UPDATE_CLASS->value => 'Изменение класса дома',
-            self::HOUSE_UPDATE_CATEGORY->value => 'Изменение категории дома',
             self::QUOTE_SHOW_LIST->value => 'Просмотр списка цитат',
             self::QUOTE_CREATE_OR_UPDATE->value => 'Создание/изменение цитат',
             self::SHOW_PERSONAL_USER_PAGE->value => 'Просмотр страницы пользователя',

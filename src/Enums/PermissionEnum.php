@@ -41,6 +41,7 @@ enum PermissionEnum: string
     case HOUSE_ORDER_REFORMA_REPORT = '852021e2-fa8d-4629-8149-bfa12b72a0c1';
     case HOUSE_ORDER_ROSREESTR_REPORT = 'c71b8cbc-41c2-445d-8da5-7a79a36aa1fc';
     case HOUSE_MASS_ORDER_ROSREESTR_REPORT = '2a0a2f59-b8ac-49fb-8365-fead8cc13fbd';
+    case HOUSE_MASS_REORDER_ROSREESTR_REPORT = 'fab6fc42-29e2-4fa1-b2b0-670d232d4f3a';
     case HOUSE_VERIFY_MANAGEMENT_TYPE = '9458ca2a-0791-454b-83f2-99450b31433c';
     case HOUSE_VERIFY_MANAGEMENT_ORGANIZATION = '6dbc22ab-59be-406b-8f89-3fac53603d5b';
 
@@ -127,6 +128,7 @@ enum PermissionEnum: string
             self::HOUSE_ORDER_REFORMA_REPORT->value => 'Запрос выписки по дому из Реформа',
             self::HOUSE_ORDER_ROSREESTR_REPORT->value => 'Запрос выписки по дому из РосРеестра',
             self::HOUSE_MASS_ORDER_ROSREESTR_REPORT->value => 'Массовый запрос выписки по дому из РосРеестра',
+            self::HOUSE_MASS_REORDER_ROSREESTR_REPORT->value => 'Повторный массовый запрос выписки по дому из РосРеестра',
             self::HOUSE_VERIFY_MANAGEMENT_TYPE->value => 'Верификация типа обслуживающей организации дома',
             self::HOUSE_VERIFY_MANAGEMENT_ORGANIZATION->value => 'Верификация данных обслуживающей организации дома',
             self::MANAGEMENT_ORGANIZATION_SHOW_LIST->value => 'Просмотр списка обслуживающих организаций',

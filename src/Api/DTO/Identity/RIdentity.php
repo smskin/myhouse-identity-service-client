@@ -40,6 +40,8 @@ class RIdentity implements Arrayable
 
     public string|null $fullName;
 
+    public bool $newTenantNotice;
+
     public function toArray(): array
     {
         return [
@@ -58,7 +60,8 @@ class RIdentity implements Arrayable
             'age' => $this->age,
             'role' => $this->role?->toArray(),
             'createdAt' => $this->createdAt?->toIso8601String(),
-            'updatedAt' => $this->updatedAt?->toIso8601String()
+            'updatedAt' => $this->updatedAt?->toIso8601String(),
+            'newTenantNotice' => $this->newTenantNotice
         ];
     }
 
@@ -80,6 +83,7 @@ class RIdentity implements Arrayable
         $this->role = $data['role'] ? (new RRole())->fromArray($data['role']) : null;
         $this->createdAt = $data['createdAt'] ? Carbon::make($data['createdAt']) : null;
         $this->updatedAt = $data['updatedAt'] ? Carbon::make($data['updatedAt']) : null;
+        $this->newTenantNotice = $data['newTenantNotice'];
         return $this;
     }
 
@@ -236,6 +240,12 @@ class RIdentity implements Arrayable
     public function setBirthdate(Carbon|null $birthdate): self
     {
         $this->birthdate = $birthdate;
+        return $this;
+    }
+
+    public function setNewTenantNotice(bool $newTenantNotice): self
+    {
+        $this->newTenantNotice = $newTenantNotice;
         return $this;
     }
 }

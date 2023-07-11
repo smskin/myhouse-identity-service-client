@@ -19,7 +19,7 @@
     "require": {
         "php": "^8.1",
         "ext-sync": "*",
-        "laravel/framework": "^8 || ^9",
+        "laravel/framework": "^8 || ^9 || ^10",
         "guzzlehttp/guzzle": "^7.0",
         "smskin/laravel-support": "^2.0"
     },
